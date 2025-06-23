@@ -1,1 +1,1 @@
-mi amor hermosa = "anto"
+mi_amor_hermosa = "anto";
