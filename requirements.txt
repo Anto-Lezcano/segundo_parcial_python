@@ -1,0 +1,31 @@
+# Dependencias para FastAPI
+fastapi==0.68.1
+uvicorn==0.15.0
+python-multipart==0.0.5
+
+# Dependencias para scikit-learn y entrenamiento del modelo
+scikit-learn==0.24.2
+pandas==1.3.3
+numpy==1.21.2
+
+# Dependencias para el manejo de datos y visualización
+matplotlib==3.4.3
+seaborn==0.11.2
+plotly==5.3.1
+
+# Dependencias para Jupyter Notebooks
+jupyter==1.0.0
+notebook==6.4.3
+
+# Dependencias para el manejo de imágenes y serialización
+pillow==8.3.1
+pickle5==0.0.11
+
+# Dependencias para el manejo de variables de entorno
+python-dotenv==0.19.0
+
+# Dependencias para solicitudes HTTP
+requests==2.26.0
+
+# Dependencias para CORS en FastAPI
+fastapi-cors==0.0.6
