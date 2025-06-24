@@ -2,14 +2,23 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 import joblib
 import numpy as np
+from fastapi.middleware.cors import CORSMiddleware
 
 # carga de archivos pkl
-model = joblib.load('./model/modelo_consumo_nafta.plk')
+model = joblib.load('./model/modelo_consumo_nafta.pkl')
 features = joblib.load('./model/features.pkl')
 
 app = FastAPI(title='Consumo de Nafta')
 
-MODEL_SCORE = 0.5
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+MODEL_SCORE = joblib.load('./model/metrics.pkl')
 
 class PrediccionInput(BaseModel):
     distancia_km: float
@@ -41,7 +50,7 @@ def predict(data:PrediccionInput):
     
     pred = model.predict(input_data)
     
-    return {"prediccion _litros": round(pred[0], 2)}
+    return {"prediccion_litros": round(pred[0], 2)}
 
 @app.get('/metrics')
 def get_metrics():
